@@ -4,7 +4,9 @@
 		<meta charset="utf-8">
 		<script type="text/javascript">
 			function hello(){
-				alert("hello")
+							// qs: selects one particuler html element. first one it finds. this case first h1.
+				document.querySelector("h1").innerHTML = "Goodbye!";	// innnerHTML means contents in between tags.
+	 // doc: variable in js. refers to the web document (current web page).
 			}
 
 		</script>
@@ -12,7 +14,7 @@
 	</head>
 	<body>
 		<h1>Hello!</h1>
-		<button onclick="hello()" type="button" name="button">click here</button>
+		<button onclick="hello()" type="button">click here</button>
 
 	</body>
 </html>
