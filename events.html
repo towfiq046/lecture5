@@ -3,6 +3,14 @@
 	<head>
 		<meta charset="utf-8">
 		<script type="text/javascript">
+						// 2 arg is needed   dom being loaded
+			document.addEventListener("DOMCounterLoaded", function() {	// higher order func. func as argument(value) to another func.
+			// telling the doc, func only works after the DOMCounterLoaded is done known as call back func.
+				document.querySelector("button").onclick = count;		// count is a func.
+
+				// q: try to make a variable count would result in namespcae collision.
+			});
+
 
 			let counter = 0;	// ; is not mandetory.
 
@@ -11,7 +19,7 @@
 							// qs: selects one particuler html element. first one it finds. this case first h1.
 				document.querySelector("h1").innerHTML = counter;	// innnerHTML means contents in between tags.
 	 // doc: variable in js. refers to the web document (current web page).
-	 
+
 	 			if (counter % 10 === 0) {		// after every 10 times.
 					alert(`Counter is at ${counter}!`);	// template literal. like formated string of the python.
 													// plugin a variable
