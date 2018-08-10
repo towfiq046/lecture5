@@ -3,9 +3,13 @@
 	<head>
 		<meta charset="utf-8">
 		<script type="text/javascript">
-			function hello(){
+
+			let counter = 0;	// ; is not mandetory.
+
+			function count(){
+				counter++;
 							// qs: selects one particuler html element. first one it finds. this case first h1.
-				document.querySelector("h1").innerHTML = "Goodbye!";	// innnerHTML means contents in between tags.
+				document.querySelector("h1").innerHTML = counter;	// innnerHTML means contents in between tags.
 	 // doc: variable in js. refers to the web document (current web page).
 			}
 
@@ -13,8 +17,8 @@
 		<title>Hello</title>
 	</head>
 	<body>
-		<h1>Hello!</h1>
-		<button onclick="hello()" type="button">click here</button>
+		<h1 id="counter">0</h1>		<!-- for accessing h1 by referencing it by it's id. -->
+		<button onclick="count()" type="button">click here</button>
 
 	</body>
 </html>
