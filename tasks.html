@@ -3,7 +3,22 @@
 	<head>
 		<script>
 
+			// ***no empty list by pressing or clicking submit button.***
+			// ***bug fix: onkeyup, emptyfield***
+
 			document.addEventListener('DOMContentLoaded', () => {
+
+				// by default submit button is disabled.
+				document.querySelector('#submit').disabled = true;
+
+				// enable button if there is text in input field.
+				document.querySelector('#task').onkeyup = () => {
+					if (document.querySelector('#task').value.length > 0)		// {} is not mandetory.
+						document.querySelector('#submit').disabled = false;		// < 0 does not work. idk why.
+					else
+						document.querySelector('#submit').disabled = true;
+				};
+
 				document.querySelector('#newTask').onsubmit = () => {
 					// create new item.
 					const li = document.createElement('li');
@@ -14,6 +29,7 @@
 
 					// clear input fields.
 					document.querySelector('#task').value = '';
+					document.querySelector('#submit').disabled = true;
 
 					// stop form from submitting.
 					return false;	// otherwise page is refreshing.
@@ -29,7 +45,7 @@
 		</ul>
 		<form id="newTask">
 			<input id="task" autocomplete="off" autofocus placeholder="New Task" type="text">
-			<input type="submit">
+			<input id="submit" type="submit">
 
 		</form>
 
