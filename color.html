@@ -6,22 +6,22 @@
 			// so if the first one is faulty then followings will not work. it stops there.
 			document.addEventListener('DOMContentLoaded', () => { //es6 way of writting func.
 
-				// querySelectorALL results all the element as an array. in this case buttons
-				document.querySelectorAll('.colorChange').forEach(button => {	// for each element inside that array.
-																			// heigher order ^function     ^one particular element of that func.
-					button.onclick = () => {
-						document.querySelector('#hello').style.color = button.dataset.color;	// access the data attribute using dataset.
+				document.querySelector('#colorChange').onchange = function() {	// for using this cann't use =>.
+						document.querySelector('#hello').style.color = this.value;	// this, is whatever the select dropdown is.
+																														// and ^get at its value. that will be the color.
 					};
 				});
-			});
 
 		</script>
 		<title>color</title>
 	</head>
 	<body>
 		<h1 id="hello">Hello!</h1>
-		<button class="colorChange" data-color="red">Red</button>		<!-- data attribute, associate additional data -->
-		<button class="colorChange" data-color="blue">Blue</button>		<!-- with an html element not dispalyed -->
-		<button class="colorChange" data-color="green">Green</button>		<!-- for usning afterwards -->
+		<select id="colorChange">
+			<option value="black">Black</option>
+			<option value="red">Red</option>
+			<option value="blue">Blue</option>
+			<option value="green">Green</option>
+		</select>
 	</body>
 </html>
