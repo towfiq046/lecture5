@@ -3,7 +3,18 @@
 	<head>
 		<script>
 
+			// ***no empty list by pressing or clicking submit button.***
+
 			document.addEventListener('DOMContentLoaded', () => {
+
+				// by default submit button is disabled.
+				document.querySelector('#submit').disabled = true;
+
+				// enable button if there is text in input field.
+				document.querySelector('#task').onkeyup = () => {
+					document.querySelector('#submit').disabled = false;
+				};
+
 				document.querySelector('#newTask').onsubmit = () => {
 					// create new item.
 					const li = document.createElement('li');
@@ -14,6 +25,7 @@
 
 					// clear input fields.
 					document.querySelector('#task').value = '';
+					document.querySelector('#submit').disabled = true;
 
 					// stop form from submitting.
 					return false;	// otherwise page is refreshing.
@@ -29,7 +41,7 @@
 		</ul>
 		<form id="newTask">
 			<input id="task" autocomplete="off" autofocus placeholder="New Task" type="text">
-			<input type="submit">
+			<input id="submit" type="submit">
 
 		</form>
 
