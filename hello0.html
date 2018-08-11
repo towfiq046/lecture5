@@ -1,13 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
 	<head>
-		<script type="text/javascript">
-			alert("hello world!");
+		<script>
+																// 2 arg is needed.
+			document.addEventListener("DOMContentLoaded", function() {	// as the page is loaded.
+				document.querySelector("#form").onsubmit = function() {		// referencing by the # sign.
+					// this is messy. I think func needs to be defined seperately.
+					const name = document.querySelector("#name").value;
+					alert(`Hello ${name}!`);
+				};
+			});
 
 		</script>
 		<title></title>
 	</head>
 	<body>
+		<form id="form">
+			<input id="name" autocomplete="off" autofocus placeholder="Your Name" type="text">
+			<input type="submit">
+
+		</form>
 
 	</body>
 </html>
