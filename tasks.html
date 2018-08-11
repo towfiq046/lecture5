@@ -4,7 +4,10 @@
 		<script>
 
 			// ***no empty list by pressing or clicking submit button.***
+<<<<<<< HEAD
 			// ***bug fix: onkeyup, emptyfield***
+=======
+>>>>>>> 5d7ece895f77c99b4a480a18ee87e78ce57099ee
 
 			document.addEventListener('DOMContentLoaded', () => {
 
@@ -13,10 +16,14 @@
 
 				// enable button if there is text in input field.
 				document.querySelector('#task').onkeyup = () => {
+<<<<<<< HEAD
 					if (document.querySelector('#task').value.length > 0)		// {} is not mandetory.
 						document.querySelector('#submit').disabled = false;		// < 0 does not work. idk why.
 					else
 						document.querySelector('#submit').disabled = true;
+=======
+					document.querySelector('#submit').disabled = false;
+>>>>>>> 5d7ece895f77c99b4a480a18ee87e78ce57099ee
 				};
 
 				document.querySelector('#newTask').onsubmit = () => {
