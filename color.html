@@ -2,25 +2,17 @@
 <html>
 	<head>
 		<script>
-
 			// in scripting language code is parsed line by line.
 			// so if the first one is faulty then followings will not work. it stops there.
 			document.addEventListener('DOMContentLoaded', function() {
 
-				// red.
-				document.querySelector('#red').onclick = function() {
-					document.querySelector('#hello').style.color = 'red';
-				};
-
-				// blue.
-				document.querySelector('#blue').onclick = function() {
-					document.querySelector('#hello').style.color = 'blue';
-				};
-
-				// green.
-				document.querySelector('#green').onclick = function() {
-					document.querySelector('#hello').style.color = 'green';
-				};
+				// querySelectorALL results all the element as an array. in this case buttons
+				document.querySelectorAll('.colorChange').forEach(function(button) {	// for each element inside that array.
+																			// heigher order ^function     ^one particular element of that func.
+					button.onclick = function() {
+						document.querySelector('#hello').style.color = button.dataset.color;	// access the data attribute using dataset.
+					};
+				});
 			});
 
 		</script>
@@ -28,8 +20,8 @@
 	</head>
 	<body>
 		<h1 id="hello">Hello!</h1>
-		<button id="red">Red</button>
-		<button id="blue">Blue</button>
-		<button id="green">Green</button>
+		<button class="colorChange" data-color="red">Red</button>		<!-- data attribute, associate additional data -->
+		<button class="colorChange" data-color="blue">Blue</button>		<!-- with an html element not dispalyed -->
+		<button class="colorChange" data-color="green">Green</button>		<!-- for usning afterwards -->
 	</body>
 </html>
