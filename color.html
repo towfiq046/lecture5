@@ -4,12 +4,12 @@
 		<script>
 			// in scripting language code is parsed line by line.
 			// so if the first one is faulty then followings will not work. it stops there.
-			document.addEventListener('DOMContentLoaded', function() {
+			document.addEventListener('DOMContentLoaded', () => { //es6 way of writting func.
 
 				// querySelectorALL results all the element as an array. in this case buttons
-				document.querySelectorAll('.colorChange').forEach(function(button) {	// for each element inside that array.
+				document.querySelectorAll('.colorChange').forEach(button => {	// for each element inside that array.
 																			// heigher order ^function     ^one particular element of that func.
-					button.onclick = function() {
+					button.onclick = () => {
 						document.querySelector('#hello').style.color = button.dataset.color;	// access the data attribute using dataset.
 					};
 				});
